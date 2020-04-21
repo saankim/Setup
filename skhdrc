@@ -8,13 +8,13 @@ alt - l : yabai -m window --focus east
 alt - f : yabai -m window --toggle zoom-fullscreen
 
 # swap window
-shift + fn - h : yabai -m window --swap west
-shift + fn - j : yabai -m window --swap south
-shift + fn - k : yabai -m window --swap north
-shift + fn - l : yabai -m window --swap east
+shift + alt - h : yabai -m window --swap west
+shift + alt - j : yabai -m window --swap south
+shift + alt - k : yabai -m window --swap north
+shift + alt - l : yabai -m window --swap east
 
 # rotate window
-shift + cmd - r : yabai -m space --rotate 90
+shift + alt - r : yabai -m space --rotate 90
 
 # balance size of windows
 shift + cmd - 0 : yabai -m space --balance
