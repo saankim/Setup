@@ -13,3 +13,4 @@ mv mac-dotfiles/yabairc ~/.yabairc
 brew services restart skhd
 brew services restart yabai
 ```
+shortcut: `ctrl + alt + cmd - r`
