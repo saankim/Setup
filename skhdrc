@@ -17,7 +17,7 @@ shift + alt - k : yabai -m window --swap north
 shift + alt - l : yabai -m window --swap east
 
 # rotate window
-shift + alt - r : yabai -m space --rotate 90
+alt - r : yabai -m space --rotate 90
 
 # balance size of windows
 shift + cmd - 0 : yabai -m space --balance
@@ -66,17 +66,12 @@ fn - f : yabai -m window --toggle float; \
           yabai -m window --grid 2:2:1:1:2:2
 
 # Chrome
-#shift + alt - c : open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 alt - c : open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 # Telegram
-#shift + alt - t : open -a /Applications/Telegram.app/Contents/MacOS/Telegram
 alt - t : open -a /Applications/Telegram.app/Contents/MacOS/Telegram
 # KakaoTalk
-#shift + alt - k : open -a /Applications/KakaoTalk.app/Contents/MacOS/KakaoTalk
 alt - m : open -a /Applications/KakaoTalk.app/Contents/MacOS/KakaoTalk
 # vscode
-#shift + alt - v : open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 alt - v : open -a /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 # iterm
-#shift + alt - i : open -a /Applications/iTerm.app/Contents/MacOS/iTerm2
 alt - return : open -a /Applications/iTerm.app/Contents/MacOS/iTerm2
