@@ -1,12 +1,12 @@
 #!/usr/bin/env sh
 
 #  bar settings
-yabai -m config status_bar                   on 
-yabai -m config status_bar_text_font         "Helvetica:Bold:12.0"
-yabai -m config status_bar_background_color  0xff202020
-yabai -m config status_bar_foreground_color  0xffa8a8a8
-yabai -m config status_bar_space_icon_strip  🏠 👀 💻 💖 ✏️  🌱 
-yabai -m config status_bar_clock_icon        
+#yabai -m config status_bar                   on 
+#yabai -m config status_bar_text_font         "Helvetica:Bold:12.0"
+#yabai -m config status_bar_background_color  0xff202020
+#yabai -m config status_bar_foreground_color  0xffa8a8a8
+#yabai -m config status_bar_space_icon_strip  🏠 👀 💻 💖 ✏️  🌱 
+#yabai -m config status_bar_clock_icon        
 
 # global settings
 yabai -m config mouse_follows_focus          off
@@ -27,8 +27,12 @@ yabai -m config layout                       bsp
 yabai -m config top_padding                  0
 yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
-yabai -m config right_padding                0 yabai -m config window_gap                   0
-# yabai -m config --space 2 window_gap 0
+yabai -m config right_padding                0 
+yabai -m config window_gap                   0
+
+# add 10 to gap between windows (rel = relative)
+yabai -m space --gap rel:2
+
 
 yabai -m config window_topmost                  on
 yabai -m config window_shadow                   float

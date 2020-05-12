@@ -1,13 +1,6 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
+ZSH_DISABLE_COMPFIX="true"
 export ZSH=/Users/$USER/.oh-my-zsh
-
-alias vim="nvim"
-alias vi="nvim"
-alias vimdiff="nvim -d"
-export EDITOR=/usr/local/bin/nvim
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -15,10 +8,8 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=${PATH}:~/bin
+# export PATH=${PATH}:~/bin
 export PATH=$PATH:/usr/local/bin/mysql
-
-alias git='LANG=en_GB git'
 export PATH=$PATH:$HOME/bin:$PATH
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -32,13 +23,6 @@ prompt pure
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # HIST_STAMPS="mm/dd/yyyy"
-
-plugins=(
-	git
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	tmux
-)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -63,5 +47,4 @@ alias tt='tmux ls'
 
 alias r='ranger'
 
-source ~/.local/bin/bashmarks.sh
 

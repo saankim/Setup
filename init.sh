@@ -2,7 +2,7 @@
 
 # homebrew
 if [[ ! $(which brew) ]]; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 brew update
@@ -45,6 +45,7 @@ brew install ${PACKAGES[@]}
 CASKS=(
   google-chrome
   iterm2
+  alfred
   slack
   vlc
   telegram
@@ -55,7 +56,6 @@ CASKS=(
   android-sdk
   sublime-text
   bettertouchtool
-  alfred
   itsycal
   docker
   coconutbattery
@@ -108,15 +108,17 @@ echo "Creating directory..."
 
 # tmux
 cp ./bin/tat /usr/local/bin
+cp tmux.conf ~/.tmux.conf
 
 # zsh
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+npm install --global pure-prompt
+
 cp zshrc ~/.zshrc
 source ~/.zshrc
 
-# bashmarks
-git clone git://github.com/huyng/bashmarks.git ~/Downloads
-cd ~/Downloads/bashmarks
-make install
-source ~/.local/bin/bashmarks.sh ~/.zshrc
-cd -
-
+# vim
+cp vimrc ~/.vimrc
+source ~/.vimrc
