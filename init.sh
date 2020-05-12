@@ -119,6 +119,9 @@ npm install --global pure-prompt
 cp zshrc ~/.zshrc
 source ~/.zshrc
 
+# iterm theme
+wget https://raw.githubusercontent.com/JonathanSpeek/palenight-iterm2/master/palenight.itermcolors
+
 # vim
 cp vimrc ~/.vimrc
 source ~/.vimrc
