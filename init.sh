@@ -18,6 +18,7 @@ PACKAGES=(
   autoconf
   wget
   zsh
+  nmap
   automake
   git
   jq
@@ -42,8 +43,10 @@ echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
 # applicaion list
+# https://formulae.brew.sh/cask/
 CASKS=(
   google-chrome
+  google-backup-and-sync
   iterm2
   alfred
   slack
@@ -102,14 +105,15 @@ defaults write -g NSAutomaticWindowAnimationsEnabled -bool FALSE
 # See all files
 defaults write com.apple.Finder AppleShowAllFiles YES
 
-
 echo "Creating directory..."
 [[ ! -d workspace ]] && mkdir workspace
 
+echo "Setting tmux..."
 # tmux
 cp ./bin/tat /usr/local/bin
 cp tmux.conf ~/.tmux.conf
 
+echo "Setting zsh..."
 # zsh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
@@ -119,9 +123,11 @@ npm install --global pure-prompt
 cp zshrc ~/.zshrc
 source ~/.zshrc
 
+echo "Downloading iterm theme..."
 # iterm theme
 wget https://raw.githubusercontent.com/JonathanSpeek/palenight-iterm2/master/palenight.itermcolors
 
+echo "Setting vim..."
 # vim
 cp vimrc ~/.vimrc
 source ~/.vimrc
