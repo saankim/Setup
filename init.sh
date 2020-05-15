@@ -37,6 +37,7 @@ PACKAGES=(
   docker-machine
   koekeishiya/formulae/yabai
   koekeishiya/formulae/skhd
+  github/gh/gh
 )
 
 echo "Installing packages..."
@@ -58,7 +59,6 @@ CASKS=(
   android-studio
   android-sdk
   sublime-text
-  bettertouchtool
   itsycal
   docker
   coconutbattery

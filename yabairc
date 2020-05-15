@@ -28,10 +28,10 @@ yabai -m config top_padding                  0
 yabai -m config bottom_padding               0
 yabai -m config left_padding                 0
 yabai -m config right_padding                0 
-yabai -m config window_gap                   0
+yabai -m config window_gap                   3
 
-# add 10 to gap between windows (rel = relative)
-yabai -m space --gap rel:2
+# add between windows (rel = relative)
+yabai -m space --gap rel:3
 
 
 yabai -m config window_topmost                  on

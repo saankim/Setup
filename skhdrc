@@ -10,6 +10,9 @@ alt - l : yabai -m window --focus east
 # toggle window fullscreen zoom
 alt - f : yabai -m window --toggle zoom-fullscreen
 
+# create space
+alt + cmd - n : yabai -m space --create
+
 # swap window
 shift + alt - h : yabai -m window --swap west
 shift + alt - j : yabai -m window --swap south
@@ -63,12 +66,14 @@ shift + alt - 9 : yabai -m window --space  9; yabai -m space --focus 9
 
 # float / unfloat window and center on screen
 fn - f : yabai -m window --toggle float; \
-          yabai -m window --grid 2:2:1:1:2:2
+  yabai -m window --grid 4:4:1:1:2:2
 
 # Chrome
 alt - c : open -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
 # Telegram
 alt - t : open -a /Applications/Telegram.app/Contents/MacOS/Telegram
+# Slack
+alt - s : open -a /Applications/Slack.app/Contents/MacOS/Slack
 # KakaoTalk
 alt - m : open -a /Applications/KakaoTalk.app/Contents/MacOS/KakaoTalk
 # vscode
