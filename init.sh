@@ -47,21 +47,23 @@ brew install ${PACKAGES[@]}
 # https://formulae.brew.sh/cask/
 CASKS=(
   google-chrome
-  google-backup-and-sync
   iterm2
   alfred
-  slack
-  vlc
   telegram
-  intellij-idea
-  notion
+  coconutbattery
+  itsycal
+  google-backup-and-sync
   visual-studio-code
+  slack
+  intellij-idea
+  vlc
+  notion
   android-studio
   android-sdk
   sublime-text
-  itsycal
   docker
-  coconutbattery
+  ngrok
+  wireshark
 )
 
 echo "Installing applications..."
