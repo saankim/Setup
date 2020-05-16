@@ -45,7 +45,7 @@ brew install ${PACKAGES[@]}
 
 # applicaion list
 # https://formulae.brew.sh/cask/
-CASKS=(
+APPLICATIONS=(
   google-chrome
   iterm2
   alfred
@@ -67,7 +67,7 @@ CASKS=(
 )
 
 echo "Installing applications..."
-brew cask install ${CASKS[@]}
+brew cask install ${APPLICATIONS[@]}
 
 FONTS=(
   font-inconsolata

@@ -4,7 +4,7 @@
 
 **!!!need to fix errors on the fly!!!**
 
-![Screenshot](./mac.png)
+![Screenshot](https://user-images.githubusercontent.com/23010347/82111224-92a23980-977e-11ea-90c6-aedcaee9100e.png)
 
 ## Initial setting
 ```
