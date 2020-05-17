@@ -101,20 +101,22 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 ## Make dock faster
-defaults write com.apple.dock autohide -bool true;
-defaults write com.apple.dock autohide-delay -float 0;
-defaults write com.apple.dock autohide-time-modifier -float 0;
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
 ## Make launchpad faster
-defaults write com.apple.dock springboard-show-duration -int 0;
-defaults write com.apple.dock springboard-hide-duration -int 0;
+defaults write com.apple.dock springboard-show-duration -int 0
+defaults write com.apple.dock springboard-hide-duration -int 0
 ## Make Mission Control faster
-defaults write com.apple.dock expose-animation-duration -float 0;killall Dock
+defaults write com.apple.dock expose-animation-duration -float 0
 ## Make Save Dialog faster
 defaults write -g NSWindowResizeTime -float 0.01
 ## Make popup faster
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool FALSE
 ## See all files
 defaults write com.apple.Finder AppleShowAllFiles YES
+## blank dock
+defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';killall Dock
 
 # tmux
 echo "### Setting tmux..."
