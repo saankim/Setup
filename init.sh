@@ -1,135 +1,145 @@
 #!/bin/bash
 
 # homebrew
+echo "### Installing brew"
 if [[ ! $(which brew) ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
-
 brew update
+brew cask update
 
-# brew taps
-brew tap homebrew/cask-fonts
-
+# brew package
+echo "### Installing brew packages..."
 # package list
 PACKAGES=(
-  htop
+  # autoconf
+  # automake
+  # sqlite3
+  autojump
+  bat
+  dep
+  docker
+  fasd
+  fd
   fzf
-  ranger
-  autoconf
-  wget
-  zsh
-  nmap
-  automake
+  gdbm
+  gettext
+  gh
   git
+  go
+  htop
   jq
-  npm
-  node
-  watchman
-  sqlite3
+  ncurses
+  nmap
+  openssl@1.1
+  pcre
+  pcre2
   pkg-config
+  python
   python3
+  ranger
+  readline
+  sqlite
   tmux
   tree
-  vim
-  gdb
+  watchman
   wget
-  docker
-  docker-machine
-  koekeishiya/formulae/yabai
-  koekeishiya/formulae/skhd
-  github/gh/gh
+  wget
+  xz
+  zsh
 )
-
-echo "Installing packages..."
 brew install ${PACKAGES[@]}
 
+# brew apps
+echo "### Installing brew cask applications..."
 # applicaion list
-# https://formulae.brew.sh/cask/
 APPLICATIONS=(
-  google-chrome
-  iterm2
-  alfred
-  telegram
-  coconutbattery
-  itsycal
-  google-backup-and-sync
-  visual-studio-code
-  slack
-  intellij-idea
-  vlc
-  notion
-  android-studio
-  android-sdk
-  sublime-text
+  cyberduck
   docker
+  google-chrome
+  google-cloud-sdk
+  hex-fiend
+  idagio
+  iina
+  insomnia
+  intel-power-gadget
+  itsycal
+  karabiner-elements
+  keka
+  kekadefaultapp
   ngrok
+  notion
+  setapp
+  skype
+  slack
+  visual-studio-code
   wireshark
+  zeplin
 )
-
-echo "Installing applications..."
 brew cask install ${APPLICATIONS[@]}
 
+# brew fonts
+echo "### Installing brew cask fonts..."
+brew tap homebrew/cask-fonts
 FONTS=(
-  font-inconsolata
-  font-roboto-mono
+  font-d2coding
+  font-fira-code
   font-hack-nerd-font
 )
-
-echo "Installing fonts..."
 brew cask install ${FONTS[@]}
 
-echo "Configuring OSX..."
-# Show filename extensions by default
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# tidy brew
+echo "### Tidy brew..."
+brew cleanup
+brew doctor
 
-# Enable tap-to-click
+# OS X
+echo "### Configuring OS X..."
+## Show filename extensions by default
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+## Enable tap-to-click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-
-# Make dock faster
-defaults write com.apple.dock autohide -bool true;killall Dock
-defaults write com.apple.dock autohide-delay -float 0;killall Dock
-defaults write com.apple.dock autohide-time-modifier -float 0;killall Dock
-
-# Make launchpad faster
-defaults write com.apple.dock springboard-show-duration -int 0;killall Dock
-defaults write com.apple.dock springboard-hide-duration -int 0;killall Dock
-
-# Make Mission Control faster
+## Make dock faster
+defaults write com.apple.dock autohide -bool true;
+defaults write com.apple.dock autohide-delay -float 0;
+defaults write com.apple.dock autohide-time-modifier -float 0;
+## Make launchpad faster
+defaults write com.apple.dock springboard-show-duration -int 0;
+defaults write com.apple.dock springboard-hide-duration -int 0;
+## Make Mission Control faster
 defaults write com.apple.dock expose-animation-duration -float 0;killall Dock
-
-# Make Save Dialog faster
+## Make Save Dialog faster
 defaults write -g NSWindowResizeTime -float 0.01
-
-# Make popup faster
+## Make popup faster
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool FALSE
-
-# See all files
+## See all files
 defaults write com.apple.Finder AppleShowAllFiles YES
 
-echo "Creating directory..."
-[[ ! -d workspace ]] && mkdir workspace
-
-echo "Setting tmux..."
 # tmux
-cp ./bin/tat /usr/local/bin
+echo "### Setting tmux..."
+cp ./tat /usr/local/bin
 cp tmux.conf ~/.tmux.conf
 
-echo "Setting zsh..."
-# zsh
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
-npm install --global pure-prompt
+# oh-my-zsh
+echo "### Installing oh-my-zsh..."
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-cp zshrc ~/.zshrc
+# zsh
+echo "### Setting oh-my-zsh..."
+## zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+## zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+## zsh-navigation-tools
+git clone https://github.com/psprint/zsh-navigation-tools.git ~/.oh-my-zsh/custom/plugins/zsh-navigation-tools
+alias-tips
+
+# zshrc
+echo "### Setting zsh..."
+cp .zshrc ~/.zshrc
 source ~/.zshrc
 
-echo "Downloading iterm theme..."
-# iterm theme
-wget https://raw.githubusercontent.com/JonathanSpeek/palenight-iterm2/master/palenight.itermcolors
-
-echo "Setting vim..."
-# vim
-cp vimrc ~/.vimrc
-source ~/.vimrc
+# z.sh
+echo "### Installing z.sh..."
+git clone https://github.com/rupa/z.git ~/.config/z/
