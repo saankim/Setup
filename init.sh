@@ -56,6 +56,7 @@ echo "### Installing brew cask applications..."
 APPLICATIONS=(
   cyberduck
   docker
+  github
   google-chrome
   google-cloud-sdk
   hex-fiend
