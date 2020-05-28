@@ -18,7 +18,6 @@ PACKAGES=(
   autojump
   bat
   dep
-  docker
   fasd
   fd
   fzf
@@ -54,26 +53,68 @@ brew install ${PACKAGES[@]}
 echo "### Installing brew cask applications..."
 # applicaion list
 APPLICATIONS=(
+  brewservicesmenubar
+  brooklyn
   cyberduck
+  dash
+  Discord
   docker
+  docker
+  fliqlo
+  fly
+  fontbase
+  geogebra
+  gephi
+  ghidra
   github
   google-chrome
   google-cloud-sdk
+  grammarly
+  graphql-playground
   hex-fiend
   idagio
   iina
   insomnia
   intel-power-gadget
   itsycal
+  jupyter-notebook-ql
+  kaleidoscope
   karabiner-elements
   keka
   kekadefaultapp
+  kite
+  magicavoxel
+  mark-text
+  mathpix-snipping-tool
+  muzzle
+  netron
   ngrok
   notion
+  papers
+  pdf-expert
+  perforce
+  proxyman
+  qlcolorcode
+  qlImageSize
+  qlmarkdown
+  QLStephen
+  qlvideo
+  quicklook-csv
+  quicklook-json
+  redis
+  rocket
   setapp
+  sf-symbols
+  sketchup
   skype
   slack
+  stoplight-studio
+  suspicious-package
+  switchhosts
+  table-tool
+  turbo-boost-switcher
   visual-studio-code
+  webpquicklook
   wireshark
   zeplin
 )
