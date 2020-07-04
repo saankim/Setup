@@ -60,7 +60,11 @@
                         }],
                         "to_if_alone": [{
                             "key_code": "spacebar",
-                            "modifiers": "left_control"
+                            "modifiers": [
+                                "left_control",
+                                "left_shift",
+                                "left_command"
+                            ]
                         }],
                         "type": "basic"
                     }]
@@ -82,17 +86,11 @@
                         "to_if_alone": [{
                             "key_code": "f14"
                         }],
-                        "to_if_held_down": {
-                            "set_variable": {
-                                "name": "mouse",
-                                "value": 1
-                            }
-                        },
                         "type": "basic"
                     }]
                 },
                 {
-                    "description": "left opt -> f15",
+                    "description": "left opt -> clipboard",
                     "manipulators": [{
                         "from": {
                             "key_code": "left_option",
@@ -106,7 +104,12 @@
                             "key_code": "left_option"
                         }],
                         "to_if_alone": [{
-                            "key_code": "f15"
+                            "key_code": "v",
+                            "modifiers": [
+                                "left_command",
+                                "left_shift",
+                                "left_control"
+                            ]
                         }],
                         "type": "basic"
                     }]
@@ -334,6 +337,24 @@
                             },
                             "to": [{
                                 "shell_command": "open -a Notion.app"
+                            }],
+                            "type": "basic"
+                        },
+                        {
+                            "from": {
+                                "simultaneous": [{
+                                        "key_code": "spacebar"
+                                    },
+                                    {
+                                        "key_code": "s"
+                                    },
+                                    {
+                                        "key_code": "p"
+                                    }
+                                ]
+                            },
+                            "to": [{
+                                "shell_command": "open -a Spotify.app"
                             }],
                             "type": "basic"
                         },
@@ -713,6 +734,52 @@
                 {
                     "description": "lcmode",
                     "manipulators": [{
+                            "conditions": [{
+                                "name": "lcmode",
+                                "type": "variable_if",
+                                "value": 1
+                            }],
+                            "from": {
+                                "key_code": "a",
+                                "modifiers": {
+                                    "optional": [
+                                        "any"
+                                    ]
+                                }
+                            },
+                            "to": [{
+                                "key_code": "k",
+                                "modifiers": [
+                                    "left_option",
+                                    "left_command",
+                                    "left_shift"
+                                ]
+                            }],
+                            "type": "basic"
+                        }, {
+                            "conditions": [{
+                                "name": "lcmode",
+                                "type": "variable_if",
+                                "value": 1
+                            }],
+                            "from": {
+                                "key_code": "q",
+                                "modifiers": {
+                                    "optional": [
+                                        "any"
+                                    ]
+                                }
+                            },
+                            "to": [{
+                                "key_code": "i",
+                                "modifiers": [
+                                    "left_option",
+                                    "left_command",
+                                    "left_shift"
+                                ]
+                            }],
+                            "type": "basic"
+                        }, {
                             "conditions": [{
                                 "name": "lcmode",
                                 "type": "variable_if",
@@ -1315,7 +1382,51 @@
                 }
             ]
         },
-        "devices": [],
+        "devices": [{
+            "disable_built_in_keyboard_if_exists": false,
+            "fn_function_keys": [],
+            "identifiers": {
+                "is_keyboard": true,
+                "is_pointing_device": true,
+                "product_id": 594,
+                "vendor_id": 1452
+            },
+            "ignore": false,
+            "manipulate_caps_lock_led": true,
+            "simple_modifications": [{
+                    "from": {
+                        "key_code": "left_command"
+                    },
+                    "to": {
+                        "key_code": "left_option"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "left_option"
+                    },
+                    "to": {
+                        "key_code": "left_command"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "right_option"
+                    },
+                    "to": {
+                        "key_code": "right_command"
+                    }
+                },
+                {
+                    "from": {
+                        "key_code": "right_control"
+                    },
+                    "to": {
+                        "key_code": "right_option"
+                    }
+                }
+            ]
+        }],
         "fn_function_keys": [{
                 "from": {
                     "key_code": "f1"

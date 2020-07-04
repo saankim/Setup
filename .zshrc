@@ -71,27 +71,24 @@ ZSH_THEME="saan"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-alias-tips
-cp
+plugins=(git
 fasd
-gcloud
-git
-golang
-history
-jsontools
-osx
-python
 ripgrep
-vscode
-zsh-autosuggestions
 zsh-navigation-tools
+zsh-autosuggestions
+alias-tips
 zsh-syntax-highlighting
+golang
+gcloud
+history
+vscode
+python
+osx
+jsontools
+cp
 )
 
 source $ZSH/oh-my-zsh.sh
-
-. ~/.config/z/z.sh
 
 # User configuration
 
@@ -122,3 +119,5 @@ source $ZSH/oh-my-zsh.sh
 # source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # source $(brew --prefix)/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
+
+export PATH="$PATH:/Users/san/Library/Python/2.7/bin"
