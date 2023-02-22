@@ -1,50 +1,32 @@
 #!/bin/bash
 
+echo "### init.sh started"
+
+# configs
+echo "### Setting configs..."
+cp ./config ~/.config
+
 # homebrew
 echo "### Installing brew"
 if [[ ! $(which brew) ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 brew update
-brew cask update
+brew --cask update
 
 # brew package
 echo "### Installing brew packages..."
 # package list
 PACKAGES=(
-  # autoconf
-  # automake
-  # sqlite3
-  autojump
-  bat
-  dep
-  fasd
-  fd
-  fzf
-  gdbm
-  gettext
   gh
   git
-  go
   htop
+  pandoc
+  python@3.10
+  python@3.11
   jq
-  ncurses
-  nmap
-  openssl@1.1
-  pcre
-  pcre2
-  pkg-config
-  python
-  python3
-  ranger
-  readline
-  sqlite
-  tmux
   tree
-  watchman
   wget
-  wget
-  xz
   zsh
 )
 brew install ${PACKAGES[@]}
@@ -53,87 +35,29 @@ brew install ${PACKAGES[@]}
 echo "### Installing brew cask applications..."
 # applicaion list
 APPLICATIONS=(
-  brewservicesmenubar
-  brooklyn
-  cyberduck
-  dash
-  Discord
-  docker
-  docker
-  fliqlo
-  fly
-  fontbase
-  geogebra
-  gephi
-  ghidra
-  github
+  discord
+  dropbox
+  flotato
+  flux
   google-chrome
-  google-cloud-sdk
   grammarly
-  graphql-playground
-  hex-fiend
-  idagio
+  grammarly-desktop
   iina
-  insomnia
-  intel-power-gadget
-  itsycal
-  jupyter-notebook-ql
-  kaleidoscope
+  inkscape
   karabiner-elements
   keka
-  kekadefaultapp
-  kite
-  magicavoxel
-  mark-text
+  keyboardcleantool
+  mactex
   mathpix-snipping-tool
-  muzzle
-  netron
-  ngrok
-  notion
+  monitorcontrol
+  obsidian
   papers
-  pdf-expert
-  perforce
-  proxyman
-  qlcolorcode
-  qlImageSize
-  qlmarkdown
-  QLStephen
-  qlvideo
-  quicklook-csv
-  quicklook-json
-  redis
-  rocket
-  setapp
-  sf-symbols
-  sketchup
-  skype
-  slack
-  stoplight-studio
-  suspicious-package
-  switchhosts
+  raycast
   table-tool
-  turbo-boost-switcher
   visual-studio-code
-  webpquicklook
-  wireshark
-  zeplin
+  zoom
 )
-brew cask install ${APPLICATIONS[@]}
-
-# brew fonts
-echo "### Installing brew cask fonts..."
-brew tap homebrew/cask-fonts
-FONTS=(
-  font-d2coding
-  font-fira-code
-  font-hack-nerd-font
-)
-brew cask install ${FONTS[@]}
-
-# tidy brew
-echo "### Tidy brew..."
-brew cleanup
-brew doctor
+brew --cask install ${APPLICATIONS[@]}
 
 # OS X
 echo "### Configuring OS X..."
@@ -160,11 +84,6 @@ defaults write com.apple.Finder AppleShowAllFiles YES
 ## blank dock
 defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';killall Dock
 
-# tmux
-echo "### Setting tmux..."
-cp ./tat /usr/local/bin
-cp tmux.conf ~/.tmux.conf
-
 # oh-my-zsh
 echo "### Installing oh-my-zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -187,3 +106,15 @@ source ~/.zshrc
 # z.sh
 echo "### Installing z.sh..."
 git clone https://github.com/rupa/z.git ~/.config/z/
+
+# tidy brew
+echo "### Tidy brew..."
+brew update
+brew upgrade
+brew upgrade --cask
+brew cleanup
+brew autoremove
+omz update
+
+# done
+echo "### init.sh done"
