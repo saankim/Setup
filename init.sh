@@ -35,6 +35,7 @@ brew install ${PACKAGES[@]}
 echo "### Installing brew cask applications..."
 # applicaion list
 APPLICATIONS=(
+  aldente
   discord
   dropbox
   flotato
@@ -81,7 +82,7 @@ defaults write -g NSWindowResizeTime -float 0.01
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool FALSE
 ## See all files
 defaults write com.apple.Finder AppleShowAllFiles YES
-## blank dock
+## blank dock 
 defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}';killall Dock
 
 # oh-my-zsh
