@@ -4,7 +4,7 @@ echo "### init.sh started"
 
 # configs
 echo "### Setting configs..."
-cp ./config ~/.config
+cp ~/mac-setup/config ~/.config
 
 # homebrew
 echo "### Installing brew"
@@ -100,7 +100,7 @@ alias-tips
 
 # zshrc
 echo "### Setting zsh..."
-cp .zshrc ~/.zshrc
+cp ~/mac-setup/.zshrc ~/.zshrc
 source ~/.zshrc
 
 # z.sh
