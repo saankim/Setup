@@ -4,7 +4,7 @@ echo "### init.sh started"
 
 # configs
 echo "### Setting configs..."
-cp ~/mac-setup/config ~/.config
+cp -r ~/mac-setup/config ~/.config
 
 # homebrew
 echo "### Installing brew"
