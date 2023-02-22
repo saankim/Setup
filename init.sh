@@ -12,7 +12,7 @@ if [[ ! $(which brew) ]]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 brew update
-brew --cask update
+brew update --cask
 
 # brew package
 echo "### Installing brew packages..."
@@ -57,7 +57,7 @@ APPLICATIONS=(
   visual-studio-code
   zoom
 )
-brew --cask install ${APPLICATIONS[@]}
+brew install --cask ${APPLICATIONS[@]}
 
 # OS X
 echo "### Configuring OS X..."
