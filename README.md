@@ -2,5 +2,5 @@
 
 ## Initial setting
 ```
-git clone https://github.com/saankim/mac-setup && cd mac-setup && ./init.sh && echo "remove folder" && cd .. && rm -r mac-setup
+git clone https://github.com/saankim/mac-setup && chmod +x ./mac-setup/init.sh && ./mac-setup/init.sh && echo "remove folder" && rm -rf ./mac-setup
 ```
