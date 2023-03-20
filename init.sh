@@ -2,10 +2,6 @@
 
 echo "### init.sh started"
 
-# configs
-echo "### Setting configs..."
-cp -r ~/mac-setup/config ~/.config
-
 # homebrew
 echo "### Installing brew"
 if [[ ! $(which brew) ]]; then
@@ -22,12 +18,13 @@ PACKAGES=(
   git
   htop
   pandoc
-  python@3.10
-  python@3.11
+  python3
+  pip
   jq
   tree
   wget
   zsh
+  rdkit
 )
 brew install ${PACKAGES[@]}
 
@@ -43,6 +40,7 @@ APPLICATIONS=(
   google-chrome
   grammarly
   grammarly-desktop
+  hiddenbar
   iina
   inkscape
   karabiner-elements
@@ -52,7 +50,6 @@ APPLICATIONS=(
   mathpix-snipping-tool
   monitorcontrol
   obsidian
-  papers
   raycast
   table-tool
   visual-studio-code
@@ -87,16 +84,21 @@ defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-ty
 
 # oh-my-zsh
 echo "### Installing oh-my-zsh..."
+export ZSH="~/.config/oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# configs
+echo "### Setting configs..."
+cp -r ~/mac-setup/config ~/.config
 
 # zsh
 echo "### Setting oh-my-zsh..."
 ## zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.config/oh-my-zsh/custom/plugins/zsh-autosuggestions
 ## zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.config/oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 ## zsh-navigation-tools
-git clone https://github.com/psprint/zsh-navigation-tools.git ~/.oh-my-zsh/custom/plugins/zsh-navigation-tools
+git clone https://github.com/psprint/zsh-navigation-tools.git ~/.config/oh-my-zsh/custom/plugins/zsh-navigation-tools
 alias-tips
 
 # zshrc
@@ -116,6 +118,32 @@ brew upgrade --cask
 brew cleanup
 brew autoremove
 omz update
+
+# pip
+echo "### Pip install..."
+python3.10 -m pip install --upgrade pip
+# pip list
+PIPS=(
+  numpy
+  pandas
+  matplotlib
+  seaborn
+  scikit-learn
+  jupyter
+  scipy
+  tensorflow
+  keras
+  opencv-python
+  torch
+  torchvision
+  torchtext
+  transformers
+  networkx
+  rdkit
+  jax
+  plotly
+)
+pip3.10 install --upgrade ${PIPS[@]}
 
 # done
 echo "### init.sh done"
