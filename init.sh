@@ -14,17 +14,20 @@ brew update --cask
 echo "### Installing brew packages..."
 # package list
 PACKAGES=(
-  gh
-  git
-  htop
-  pandoc
-  python3
-  pip
-  jq
-  tree
-  wget
-  zsh
-  rdkit
+bat
+ffmpeg
+gh
+htop
+icu4c@75
+imagemagick
+node
+pipx
+pueue
+python-packaging
+syncthing
+websocketd
+wget
+z
 )
 brew install ${PACKAGES[@]}
 
@@ -32,28 +35,58 @@ brew install ${PACKAGES[@]}
 echo "### Installing brew cask applications..."
 # applicaion list
 APPLICATIONS=(
-  aldente
-  discord
-  dropbox
-  flotato
-  flux
-  google-chrome
-  grammarly
-  grammarly-desktop
-  hiddenbar
-  iina
-  inkscape
-  karabiner-elements
-  keka
-  keyboardcleantool
-  mactex
-  mathpix-snipping-tool
-  monitorcontrol
-  obsidian
-  raycast
-  table-tool
-  visual-studio-code
-  zoom
+betterdisplay
+chatgpt
+claude
+coconutbattery
+discord
+drawio
+dropbox
+font-d2coding
+font-dejavu
+font-gowun-batang
+font-jeju-myeongjo
+font-jetbrains-mono
+font-ko-pub-batang
+font-liberation
+font-liberation-mono-for-powerline
+font-nanum-brush-script
+font-nanum-gothic
+font-nanum-gothic-coding
+font-nanum-myeongjo
+font-nanum-pen-script
+font-new-york
+font-noto-sans-kr
+font-noto-serif
+font-noto-serif-kr
+font-pretendard
+font-sf-compact
+font-sf-mono
+font-sf-pro
+gephi
+google-chrome
+iina
+input-source-pro
+karabiner-elements
+keka
+keyboardcleantool
+latest
+mactex
+millie
+notion
+qlcolorcode
+qlstephen
+quicklook-json
+setapp
+sf-symbols
+tabby
+tailscale
+texifier
+tradingview
+typinator
+visual-studio-code
+zoom
+zotero
 )
 brew install --cask ${APPLICATIONS[@]}
 
